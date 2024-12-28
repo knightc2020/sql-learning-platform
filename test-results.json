@@ -1,0 +1,31 @@
+{
+  "statusCode": 201,
+  "headers": {
+    "x-powered-by": "Express",
+    "access-control-allow-origin": "http://localhost:3000",
+    "vary": "Origin",
+    "access-control-allow-credentials": "true",
+    "content-type": "application/json; charset=utf-8",
+    "content-length": "442",
+    "etag": "W/\"1ba-zYscPDEYHjWiySP/Fgy8xliZpuc\"",
+    "date": "Sat, 28 Dec 2024 03:21:33 GMT",
+    "connection": "keep-alive",
+    "keep-alive": "timeout=5"
+  },
+  "body": {
+    "status": "success",
+    "data": {
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6InRlc3R1c2VyMiIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzM1MzU2MDkzLCJleHAiOjE3MzU0NDI0OTN9.RRnjqLNBxU9M_tHCGF9Rp6fE642p7u4zSZvjbg7h0s8",
+      "user": {
+        "user_id": 2,
+        "username": "testuser2",
+        "email": "test2@example.com",
+        "role": "student",
+        "status": "active",
+        "last_login": null,
+        "created_at": "2024-12-28T03:21:33.000Z",
+        "updated_at": "2024-12-28T03:21:33.000Z"
+      }
+    }
+  }
+}

@@ -12,5 +12,6 @@ export const dbConfig: PoolOptions = {
   connectionLimit: 10,
   queueLimit: 0,
   enableKeepAlive: true,
-  keepAliveInitialDelay: 0
+  keepAliveInitialDelay: 0,
+  timezone: '+08:00'
 }; 

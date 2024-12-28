@@ -29,11 +29,7 @@ class CursorAgent {
       // 记录查询历史
       await this.logQuery(sql, true);
       
-      return {
-        success: true,
-        data: results,
-        message: '��询执行成功'
-      };
+      return results;
     } catch (error) {
       // 记录失败的查询
       await this.logQuery(sql, false);

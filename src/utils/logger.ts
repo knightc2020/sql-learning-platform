@@ -1,9 +1,15 @@
 import winston from 'winston';
 
+// 自定义时间格式
+const localTimeFormat = winston.format((info) => {
+  info.timestamp = new Date().toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
+  return info;
+});
+
 const logger = winston.createLogger({
   level: 'info',
   format: winston.format.combine(
-    winston.format.timestamp(),
+    localTimeFormat(),
     winston.format.json()
   ),
   transports: [
@@ -14,7 +20,10 @@ const logger = winston.createLogger({
 
 if (process.env.NODE_ENV !== 'production') {
   logger.add(new winston.transports.Console({
-    format: winston.format.simple()
+    format: winston.format.combine(
+      localTimeFormat(),
+      winston.format.simple()
+    )
   }));
 }
 

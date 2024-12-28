@@ -11,19 +11,33 @@ export const executeSql = async (req: Request, res: Response) => {
       throw new AppError(400, 'SQL 查询语句不能为空');
     }
 
+    logger.info(`执行 SQL 查询: ${sql}`);
+
     const result = await CursorAgent.executeQuery(sql);
-    res.json(result);
+    
+    const response = {
+      success: true,
+      data: result,
+      message: '查询执行成功'
+    };
+
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    
+    res.json(response);
+
+    logger.info('响应发送完成');
   } catch (error) {
+    logger.error('SQL执行错误:', error);
+    
     if (error instanceof AppError) {
       res.status(error.statusCode).json({
-        status: 'error',
+        success: false,
         message: error.message
       });
     } else {
-      logger.error('SQL执行器错误:', error);
       res.status(500).json({
-        status: 'error',
-        message: '服务器内部错误'
+        success: false,
+        message: '执行 SQL 查询时发生错误'
       });
     }
   }
